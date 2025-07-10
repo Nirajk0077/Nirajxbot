@@ -118,7 +118,12 @@ User - {}"""
 ⭐ Rating: {rating} / 10</b>
 """
 
-    FILE_CAPTION = """<b>{file_name}</b>"""
+    FILE_CAPTION = """@Deendayal_Hindi_Movies.<blockquote><a href="https://t.me//Deendayal_Hindi_Movies"><b>@Nobita_Files_Filter_bot {file_name}</b></a></blockquote>
+
+<b>⚙️ sɪᴢᴇ : {file_size}</b>
+
+Powered By ⚜️ :「 @Deendayal_Hindi_Movies」
+"""
     
 
     ALRT_TXT = """ᴡʜᴀᴛ ᴀʀᴇ ʏᴏᴜ sᴇᴀʀᴄʜɪɴɢ !?"""
