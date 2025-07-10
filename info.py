@@ -16,7 +16,7 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '26992030'))
 API_HASH = environ.get('API_HASH', '4da7d71c6bc4512a886e41aca83a5ee3')
-BOT_TOKEN = environ.get('BOT_TOKEN', '')
+BOT_TOKEN = environ.get('BOT_TOKEN', '8013819379:AAH3KN6zMn6uYihs8CbCaHAcrIegAqlJHRE')
 PORT = environ.get('PORT', '8082')
 
 # Owners 
@@ -98,7 +98,7 @@ LONG_IMDB_DESCRIPTION = is_enabled('LONG_IMDB_DESCRIPTION', False)
 PROTECT_CONTENT = is_enabled('PROTECT_CONTENT', False)
 SPELL_CHECK = is_enabled('SPELL_CHECK', True)
 LINK_MODE = is_enabled('LINK_MODE', True)
-TMDB_API_KEY = environ.get("TMDB_API_KEY", "")
+TMDB_API_KEY = environ.get("TMDB_API_KEY", "8d848a4e0a545e73606054c99d7eff98")
 
 # Online Streaming And Download 
 STREAM_MODE = bool(environ.get('STREAM_MODE', True)) # Set True or Flase
