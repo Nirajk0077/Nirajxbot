@@ -89,15 +89,15 @@ async def start(client:Client, message):
         await client.send_message(LOG_CHANNEL, script.NEW_USER_TXT.format(temp.B_LINK, message.from_user.id, message.from_user.mention))
     if len(message.command) != 2:
         buttons = [[
-                           InlineKeyboardButton('⇋ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⇋', url=f'http://telegram.dog/{temp.U_NAME}?startgroup=start')		
+                           InlineKeyboardButton('🔰 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 🔰', url=f'http://telegram.dog/{temp.U_NAME}?startgroup=start')		
                         ],[
-                            InlineKeyboardButton('• ᴅɪꜱᴀʙʟᴇ ᴀᴅꜱ •', callback_data='premium'),
-                            InlineKeyboardButton('• ꜱᴘᴇᴄɪᴀʟ •', callback_data="special")
+                            InlineKeyboardButton('🚫 ᴅɪꜱᴀʙʟᴇ ᴀᴅꜱ 🚫', callback_data='premium'),
+                            InlineKeyboardButton('🔥 ꜱᴘᴇᴄɪᴀʟ 🔥', callback_data="special")
                         ],[
-                            InlineKeyboardButton("• ʜᴇʟᴘ •", callback_data='help'),
-                            InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about')
+                            InlineKeyboardButton("🚨 ʜᴇʟᴘ 🚨", callback_data='help'),
+                            InlineKeyboardButton(' ᴀʙᴏᴜᴛ ❓', callback_data='about')
                         ],[
-                            InlineKeyboardButton('• ᴇᴀʀɴ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏɴᴇʏ ᴡɪᴛʜ ʙᴏᴛ •', callback_data='earn')
+                            InlineKeyboardButton('💸 ᴇᴀʀɴ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏɴᴇʏ ᴡɪᴛʜ ʙᴏᴛ 💸', callback_data='earn')
                         ]] 
         reply_markup = InlineKeyboardMarkup(buttons)
         m=await message.reply_sticker("CAACAgUAAx0CZz_GMwACMBdnXZA4SejgJ6a_0TrNzOfn9ImI_QACNwsAArT4iFVaZPJf8ldVVh4E") 
@@ -110,15 +110,15 @@ async def start(client:Client, message):
         return        
     if len(message.command) == 2 and message.command[1] in ["subscribe", "error", "okay", "help"]:
             buttons = [[
-                InlineKeyboardButton('⇋ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ⇋', url=f'http://telegram.dog/{temp.U_NAME}?startgroup=start')		
+                InlineKeyboardButton('🔰 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 🔰', url=f'http://telegram.dog/{temp.U_NAME}?startgroup=start')		
             ],[
-                InlineKeyboardButton('• ᴅɪꜱᴀʙʟᴇ ᴀᴅꜱ •', callback_data='premium'),
-                InlineKeyboardButton('• ꜱᴘᴇᴄɪᴀʟ •', callback_data="special")
+                InlineKeyboardButton('🚫 ᴅɪꜱᴀʙʟᴇ ᴀᴅꜱ 🚫', callback_data='premium'),
+                InlineKeyboardButton('🔥 ꜱᴘᴇᴄɪᴀʟ 🔥', callback_data="special")
             ],[                
-                InlineKeyboardButton("• ʜᴇʟᴘ •", callback_data='help'),
-                InlineKeyboardButton('• ᴀʙᴏᴜᴛ •', callback_data='about')
+                InlineKeyboardButton("🚨 ʜᴇʟᴘ 🚨", callback_data='help'),
+                InlineKeyboardButton(' ᴀʙᴏᴜᴛ ❓', callback_data='about')
             ],[
-                InlineKeyboardButton('• ᴇᴀʀɴ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏɴᴇʏ ᴡɪᴛʜ ʙᴏᴛ •', callback_data='earn')
+                InlineKeyboardButton('💸 ᴇᴀʀɴ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏɴᴇʏ ᴡɪᴛʜ ʙᴏᴛ 💸', callback_data='earn')
             ]] 
             reply_markup = InlineKeyboardMarkup(buttons)
             return await message.reply_photo(photo=START_IMG, caption=script.START_TXT.format(message.from_user.mention, get_status(), message.from_user.id),
@@ -301,7 +301,7 @@ async def start(client:Client, message):
                 file_caption=file.caption
             )
             btn = [[
-                InlineKeyboardButton("✛ ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ ✛", callback_data=f'stream#{file.file_id}')                
+                InlineKeyboardButton("📺 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 🚀", callback_data=f'stream#{file.file_id}')                
             ]]
             toDel = await client.send_cached_media(
                 chat_id=message.from_user.id,
@@ -341,7 +341,7 @@ async def start(client:Client, message):
         file_caption=files.caption
     )
     btn = [[
-        InlineKeyboardButton("✛ ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ ✛", callback_data=f'stream#{file_id}')
+        InlineKeyboardButton("📺 ᴡᴀᴛᴄʜ & ᴅᴏᴡɴʟᴏᴀᴅ 🚀", callback_data=f'stream#{file_id}')
     ]]
     toDel=await client.send_cached_media(
         chat_id=message.from_user.id,
@@ -435,20 +435,20 @@ async def settings(client, message):
     title = message.chat.title
     if settings is not None:
             buttons = [[
-                InlineKeyboardButton('ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ', callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{grp_id}'),
-                InlineKeyboardButton('ᴏɴ ✓' if settings["auto_filter"] else 'ᴏғғ ✗', callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{grp_id}')
+                InlineKeyboardButton('✨ ᴀᴜᴛᴏ ꜰɪʟᴛᴇʀ ✨', callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{grp_id}'),
+                InlineKeyboardButton('ᴏɴ ✅' if settings["auto_filter"] else 'ᴏғғ ✗', callback_data=f'setgs#auto_filter#{settings["auto_filter"]}#{grp_id}')
             ],[
                 InlineKeyboardButton('ɪᴍᴅʙ', callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}'),
-                InlineKeyboardButton('ᴏɴ ✓' if settings["imdb"] else 'ᴏғғ ✗', callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}')
+                InlineKeyboardButton('ᴏɴ ✅' if settings["imdb"] else 'ᴏғғ ✗', callback_data=f'setgs#imdb#{settings["imdb"]}#{grp_id}')
             ],[
                 InlineKeyboardButton('sᴘᴇʟʟ ᴄʜᴇᴄᴋ', callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}'),
-                InlineKeyboardButton('ᴏɴ ✓' if settings["spell_check"] else 'ᴏғғ ✗', callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}')
+                InlineKeyboardButton('ᴏɴ ✅' if settings["spell_check"] else 'ᴏғғ ✗', callback_data=f'setgs#spell_check#{settings["spell_check"]}#{grp_id}')
             ],[
                 InlineKeyboardButton('ᴀᴜᴛᴏ ᴅᴇʟᴇᴛᴇ', callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{grp_id}'),
                 InlineKeyboardButton(f'{get_readable_time(DELETE_TIME)}' if settings["auto_delete"] else 'ᴏғғ ✗', callback_data=f'setgs#auto_delete#{settings["auto_delete"]}#{grp_id}')
             ],[
                 InlineKeyboardButton('ʀᴇsᴜʟᴛ ᴍᴏᴅᴇ', callback_data=f'setgs#link#{settings["link"]}#{str(grp_id)}'),
-                InlineKeyboardButton('⛓ ʟɪɴᴋ' if settings["link"] else '🧲 ʙᴜᴛᴛᴏɴ', callback_data=f'setgs#link#{settings["link"]}#{str(grp_id)}')
+                InlineKeyboardButton('⛓️ ʟɪɴᴋ' if settings["link"] else '🧲 ʙᴜᴛᴛᴏɴ', callback_data=f'setgs#link#{settings["link"]}#{str(grp_id)}')
             ],[
                 InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
             ]]
@@ -514,7 +514,7 @@ async def send_request(bot, message):
     buttons = [[
         InlineKeyboardButton('👀 ᴠɪᴇᴡ ʀᴇǫᴜᴇꜱᴛ 👀', url=f"{message.link}")
     ],[
-        InlineKeyboardButton('⚙ sʜᴏᴡ ᴏᴘᴛɪᴏɴ ⚙', callback_data=f'show_options#{message.from_user.id}#{message.id}')
+        InlineKeyboardButton('⚙️ sʜᴏᴡ ᴏᴘᴛɪᴏɴ ⚙️', callback_data=f'show_options#{message.from_user.id}#{message.id}')
     ]]
     sent_request = await bot.send_message(REQUEST_CHANNEL, script.REQUEST_TXT.format(message.from_user.mention, message.from_user.id, request), reply_markup=InlineKeyboardMarkup(buttons))
     btn = [[
@@ -860,9 +860,9 @@ async def all_settings(client, message):
 📂 ꜰɪʟᴇ ᴄᴀᴘᴛɪᴏɴ - `{settings['caption']}`</b>"""
     
     btn = [[
-        InlineKeyboardButton("ʀᴇꜱᴇᴛ ᴅᴀᴛᴀ", callback_data="reset_grp_data")
+        InlineKeyboardButton("🗃️ ʀᴇꜱᴇᴛ ᴅᴀᴛᴀ 🗃️", callback_data="reset_grp_data")
     ],[
-        InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close_data")
+        InlineKeyboardButton("❌ ᴄʟᴏsᴇ ❌", callback_data="close_data")
     ]]
     reply_markup=InlineKeyboardMarkup(btn)
     dlt=await message.reply_text(text, reply_markup=reply_markup, disable_web_page_preview=True)
@@ -957,9 +957,9 @@ async def top(client, query):
 @Client.on_message(filters.command("refer"))
 async def refer(bot, message):
     btn = [[
-        InlineKeyboardButton('• ɪɴᴠɪᴛᴇ ʟɪɴᴋ •', url=f'https://telegram.me/share/url?url=https://telegram.dog/{bot.me.username}?start=reff_{message.from_user.id}&text=Hello%21%20Experience%20a%20bot%20that%20offers%20a%20vast%20library%20of%20unlimited%20movies%20and%20series.%20%F0%9F%98%83'),
+        InlineKeyboardButton('📩 ɪɴᴠɪᴛᴇ ʟɪɴᴋ 📩', url=f'https://telegram.me/share/url?url=https://telegram.dog/{bot.me.username}?start=reff_{message.from_user.id}&text=Hello%21%20Experience%20a%20bot%20that%20offers%20a%20vast%20library%20of%20unlimited%20movies%20and%20series.%20%F0%9F%98%83'),
         InlineKeyboardButton(f'⏳ {referdb.get_refer_points(message.from_user.id)}', callback_data='ref_point'),
-        InlineKeyboardButton('• ᴄʟᴏsᴇ •', callback_data='close_data')
+        InlineKeyboardButton('❌ ᴄʟᴏsᴇ ❌', callback_data='close_data')
     ]]  
     m=await message.reply_sticker("CAACAgQAAxkBAAEkt_Rl_7138tgHJdEsqSNzO5mPWioZDgACGRAAAudLcFGAbsHU3KNJUx4E")      
     await m.delete()
