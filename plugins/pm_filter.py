@@ -204,9 +204,9 @@ async def next_page(bot, query):
 	InlineKeyboardButton("📥 sᴇɴᴅ ᴀʟʟ ғɪʟᴇs 📥", callback_data=f"send_all#{key}"),
         ])
     btn.insert(1, [
-        InlineKeyboardButton("📍 ǫᴜᴀʟɪᴛʏ 📍", callback_data=f"qualities#{key}#{offset}#{req}"),
-	    InlineKeyboardButton("🍂 ꜱᴇᴀꜱᴏɴ 🍂", callback_data=f"seasons#{key}#{offset}#{req}"),
-        InlineKeyboardButton("🤟 ʟᴀɴɢᴜᴀɢᴇ 🤟", callback_data=f"languages#{key}#{offset}#{req}")
+        InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{key}#{offset}#{req}"),
+	    InlineKeyboardButton("ꜱᴇᴀꜱᴏɴ", callback_data=f"seasons#{key}#{offset}#{req}"),
+        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#{offset}#{req}")
     ])    
 
     if 0 < offset <= int(MAX_BTN):
@@ -330,9 +330,9 @@ async def season_search(client: Client, query: CallbackQuery):
 	InlineKeyboardButton("📥 sᴇɴᴅ ᴀʟʟ ғɪʟᴇs 📥", callback_data=f"send_all#{key}"),
         ])
     btn.insert(1, [
-        InlineKeyboardButton("📍 ǫᴜᴀʟɪᴛʏ 📍", callback_data=f"qualities#{key}#{offset}#{req}"),
-	InlineKeyboardButton("🍂 ꜱᴇᴀꜱᴏɴ 🍂", callback_data=f"seasons#{key}#{offset}#{req}"),
-        InlineKeyboardButton("🤟 ʟᴀɴɢᴜᴀɢᴇ 🤟", callback_data=f"languages#{key}#{offset}#{req}")
+        InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{key}#{offset}#{req}"),
+	InlineKeyboardButton("ꜱᴇᴀꜱᴏɴ", callback_data=f"seasons#{key}#{offset}#{req}"),
+        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#{offset}#{req}")
     ])    
     
     if n_offset== '':
@@ -429,9 +429,9 @@ async def year_search(client: Client, query: CallbackQuery):
 	InlineKeyboardButton("📥 sᴇɴᴅ ᴀʟʟ ғɪʟᴇs 📥", callback_data=f"send_all#{key}"),
         ])
     btn.insert(1, [
-        InlineKeyboardButton("📍 ǫᴜᴀʟɪᴛʏ 📍", callback_data=f"qualities#{key}#{offset}#{req}"),
-        InlineKeyboardButton("🍂 ꜱᴇᴀꜱᴏɴ 🍂", callback_data=f"seasons#{key}#{offset}#{req}"),
-        InlineKeyboardButton("🤟 ʟᴀɴɢᴜᴀɢᴇ 🤟", callback_data=f"languages#{key}#{offset}#{req}")
+        InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{key}#{offset}#{req}"),
+        InlineKeyboardButton("ꜱᴇᴀꜱᴏɴ", callback_data=f"seasons#{key}#{offset}#{req}"),
+        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#{offset}#{req}")
     ])    
     
     if n_offset== '':
@@ -527,9 +527,9 @@ async def quality_search(client: Client, query: CallbackQuery):
 	InlineKeyboardButton("📥 sᴇɴᴅ ᴀʟʟ ғɪʟᴇs 📥", callback_data=f"send_all#{key}"),
         ])
     btn.insert(1, [
-        InlineKeyboardButton("📍 ǫᴜᴀʟɪᴛʏ 📍", callback_data=f"qualities#{key}#{offset}#{req}"),
-	InlineKeyboardButton("🍂 ꜱᴇᴀꜱᴏɴ 🍂", callback_data=f"seasons#{key}#{offset}#{req}"),
-        InlineKeyboardButton("🤟 ʟᴀɴɢᴜᴀɢᴇ 🤟", callback_data=f"languages#{key}#{offset}#{req}"),
+        InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{key}#{offset}#{req}"),
+	InlineKeyboardButton("ꜱᴇᴀꜱᴏɴ", callback_data=f"seasons#{key}#{offset}#{req}"),
+        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#{offset}#{req}"),
     ])    
     if n_offset== '':
         btn.append(
@@ -634,9 +634,9 @@ async def lang_search(client: Client, query: CallbackQuery):
 	InlineKeyboardButton("📥 sᴇɴᴅ ᴀʟʟ ғɪʟᴇs 📥", callback_data=f"send_all#{key}"),
         ])
     btn.insert(1, [
-        InlineKeyboardButton("📍 ǫᴜᴀʟɪᴛʏ 📍", callback_data=f"qualities#{key}#{offset}#{req}"),
-	InlineKeyboardButton("🍂 ꜱᴇᴀꜱᴏɴ 🍂", callback_data=f"seasons#{key}#{offset}#{req}"),
-        InlineKeyboardButton("🤟 ʟᴀɴɢᴜᴀɢᴇ 🤟", callback_data=f"languages#{key}#{offset}#{req}")
+        InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{key}#{offset}#{req}"),
+	InlineKeyboardButton("ꜱᴇᴀꜱᴏɴ", callback_data=f"seasons#{key}#{offset}#{req}"),
+        InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#{offset}#{req}")
     ])    
     if n_offset== '':
         btn.append(
@@ -766,10 +766,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         btn = [[
             InlineKeyboardButton('🧿 ꜱᴛʀᴇᴀᴍ ᴏɴ ᴡᴇʙ 🖥', web_app=WebAppInfo(url=online))
         ],[
-            InlineKeyboardButton("🎥 ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ 🎥", url=online),
-            InlineKeyboardButton("🚀 ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ 🚀", url=download)
+            InlineKeyboardButton("ᴡᴀᴛᴄʜ ᴏɴʟɪɴᴇ 🎥", url=online),
+            InlineKeyboardButton("ꜰᴀꜱᴛ ᴅᴏᴡɴʟᴏᴀᴅ 🚀", url=download)
         ],[
-            InlineKeyboardButton('🚫 ᴄʟᴏsᴇ 🚫', callback_data='close_data')
+            InlineKeyboardButton(' ᴄʟᴏsᴇ 🚫', callback_data='close_data')
 	]]
         await query.edit_message_reply_markup(
         reply_markup=InlineKeyboardMarkup(btn)
@@ -801,10 +801,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[		
                 InlineKeyboardButton('🔰 ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 🔰', url=f'http://telegram.dog/{temp.U_NAME}?startgroup=start')		
 		],[
-		InlineKeyboardButton('🚫 ᴅɪꜱᴀʙʟᴇ ᴀᴅꜱ 🚫', callback_data='jisshupremium'),
-                InlineKeyboardButton('🔥 ꜱᴘᴇᴄɪᴀʟ 🔥', callback_data="special")
+		InlineKeyboardButton('ᴅɪꜱᴀʙʟᴇ ᴀᴅꜱ 🚫', callback_data='jisshupremium'),
+                InlineKeyboardButton('ꜱᴘᴇᴄɪᴀʟ 🔥', callback_data="special")
                 ],[
-                InlineKeyboardButton("🚨 ʜᴇʟᴘ 🚨", callback_data='help'),
+                InlineKeyboardButton("ʜᴇʟᴘ 🚨", callback_data='help'),
                 InlineKeyboardButton(' ᴀʙᴏᴜᴛ ❓', callback_data='about')
 		],[
                 InlineKeyboardButton('💸 ᴇᴀʀɴ ᴜɴʟɪᴍɪᴛᴇᴅ ᴍᴏɴᴇʏ ᴡɪᴛʜ ʙᴏᴛ 💸', callback_data='earn')
@@ -840,8 +840,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
 	    
     elif query.data == "special":
         btn = [[
-                InlineKeyboardButton('🔍 ᴍᴏsᴛ sᴇᴀʀᴄʜ 🔎', callback_data="mostsearch"),
-                InlineKeyboardButton('🕵️ ᴛᴏᴘ ᴛʀᴇɴᴅɪɴɢ 🕵️', callback_data="trending")
+                InlineKeyboardButton('ᴍᴏsᴛ sᴇᴀʀᴄʜ 🔎', callback_data="mostsearch"),
+                InlineKeyboardButton('ᴛᴏᴘ ᴛʀᴇɴᴅɪɴɢ 🕵️', callback_data="trending")
 	],[
 		InlineKeyboardButton('🖼️ ɪᴍᴀɢᴇ ᴛᴏ ʟɪɴᴋ 🔗', callback_data='telegraph'),
         ],[
@@ -909,7 +909,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('💎 ᴄᴜꜱᴛᴏᴍ ᴘʟᴀɴ 💎', callback_data='other')
         ],[
             InlineKeyboardButton('🔙 ʙᴀᴄᴋ ', callback_data='seeplans'),
-            InlineKeyboardButton('🚫 ᴄʟᴏꜱᴇ 🚫', callback_data='close_data')
+            InlineKeyboardButton('ᴄʟᴏꜱᴇ 🚫', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)             
         await client.edit_message_media(
@@ -949,8 +949,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
     
     elif query.data == "help":
         buttons = [[
-		InlineKeyboardButton('🛠️ ᴀᴅᴍɪɴ 🛠️', callback_data='admincmd'),              
-		InlineKeyboardButton('🔮 ɢʀᴏᴜᴘ sᴇᴛᴜᴘ 🔮', callback_data='earn2')
+		InlineKeyboardButton('ᴀᴅᴍɪɴ 🛠️', callback_data='admincmd'),              
+		InlineKeyboardButton('ɢʀᴏᴜᴘ sᴇᴛᴜᴘ 🔮', callback_data='earn2')
 	], [
 		InlineKeyboardButton('⋞ ʙᴀᴄᴋ ᴛᴏ ʜᴏᴍᴇ', callback_data='start')
 	]]    
@@ -971,8 +971,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 [[
 			InlineKeyboardButton('‼️ ᴅɪꜱᴄʟᴀɪᴍᴇʀ ‼️', callback_data='disclaimer')
 		],[
-			InlineKeyboardButton('👨‍💻 sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 👨‍💻', callback_data='source'),
-                        InlineKeyboardButton('⭐ ᴄᴏɴᴛʀɪʙᴜᴛᴏʀs ⭐',callback_data='mydevelopers')
+			InlineKeyboardButton('sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ 👨‍💻', callback_data='source'),
+                        InlineKeyboardButton('ᴄᴏɴᴛʀɪʙᴜᴛᴏʀs ⭐',callback_data='mydevelopers')
 		],[
 			InlineKeyboardButton('⋞ ʜᴏᴍᴇ', callback_data='start')]]
                 ),
@@ -983,10 +983,10 @@ async def cb_handler(client: Client, query: CallbackQuery):
  
     elif query.data == "source":
         buttons = [[
-            InlineKeyboardButton('😅 ʀᴇᴘᴏ', url='https://github.com/')
+            InlineKeyboardButton('😅 ʀᴇᴘᴏ', url='https://t.me/Deendayal_Hindi_Movies')
         ],[
             InlineKeyboardButton('⋞ ʙᴀᴄᴋ', callback_data='about'),
-            InlineKeyboardButton('⚔️ ᴄʟᴏsᴇ ⚔️', callback_data='close_data')
+            InlineKeyboardButton('ᴄʟᴏsᴇ ⚔️', callback_data='close_data')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await query.message.edit_text(
@@ -1455,14 +1455,14 @@ async def auto_filter(client, msg, spoll=False , pm_mode = False):
                 InlineKeyboardButton("📥 sᴇɴᴅ ᴀʟʟ ғɪʟᴇs 📥", callback_data=f"send_all#{key}"),
             ])
             btn.insert(1, [
-                InlineKeyboardButton("📍 ǫᴜᴀʟɪᴛʏ 📍", callback_data=f"qualities#{key}#{offset}#{req}"),
-                InlineKeyboardButton("🍂 ꜱᴇᴀꜱᴏɴ 🍂", callback_data=f"seasons#{key}#{offset}#{req}"),
-                InlineKeyboardButton("🤟 ʟᴀɴɢᴜᴀɢᴇ 🤟", callback_data=f"languages#{key}#{offset}#{req}")
+                InlineKeyboardButton("ǫᴜᴀʟɪᴛʏ", callback_data=f"qualities#{key}#{offset}#{req}"),
+                InlineKeyboardButton("ꜱᴇᴀꜱᴏɴ", callback_data=f"seasons#{key}#{offset}#{req}"),
+                InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#{offset}#{req}")
             ])            
         else:
             btn.insert(0,[
                 InlineKeyboardButton("📥 sᴇɴᴅ ᴀʟʟ ғɪʟᴇs 📥", callback_data=f"send_all#{key}"),
-                InlineKeyboardButton("🤟 ʟᴀɴɢᴜᴀɢᴇ 🤟", callback_data=f"languages#{key}#{offset}#{req}")
+                InlineKeyboardButton("ʟᴀɴɢᴜᴀɢᴇ", callback_data=f"languages#{key}#{offset}#{req}")
             ])
             btn.insert(1,[
                 InlineKeyboardButton("🚸 ɴᴏ ᴍᴏʀᴇ ᴘᴀɢᴇs 🚸", user_id=ADMINS[0])
@@ -1636,7 +1636,7 @@ async def advantage_spell_chok(message):
         for movie in movies
     ]
     buttons.append(
-        [InlineKeyboardButton(text="🚫 ᴄʟᴏsᴇ 🚫", callback_data='close_data')]
+        [InlineKeyboardButton(text="ᴄʟᴏsᴇ 🚫", callback_data='close_data')]
     )
     d = await message.reply_text(text=script.CUDNT_FND.format(message.from_user.mention), reply_markup=InlineKeyboardMarkup(buttons), reply_to_message_id=message.id)
     await asyncio.sleep(120)
