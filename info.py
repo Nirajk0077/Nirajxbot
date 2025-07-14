@@ -28,8 +28,8 @@ USERNAME = environ.get('USERNAME', "Deendayal_dhakad_Contact") # ADMIN USERNAME
 CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002277314287').split()]
 
 # ForceSub Channel & Log Channels
-auth_req_channel = environ.get('AUTH_REQ_CHANNEL', '-1002329095900')  # requst to join Channel for force sub (make sure bot is admin) only for bot ADMINS  
-AUTH_CHANNELS = [int(channels_id) for channels_id in environ.get('AUTH_CHANNELS', '-1002329095900 -1002446479008').split() if re.match(r'^-?\d+$', channels_id)]  # Channels for force sub (make sure bot is admin)
+auth_req_channel = environ.get('AUTH_REQ_CHANNEL', '-1002456267845 -1002568854373 -1002695471786')  # requst to join Channel for force sub (make sure bot is admin) only for bot ADMINS  
+AUTH_CHANNELS = [int(channels_id) for channels_id in environ.get('AUTH_CHANNELS', '0').split() if re.match(r'^-?\d+$', channels_id)]  # Channels for force sub (make sure bot is admin)
 AUTH_REQ_CHANNEL = int(auth_req_channel) if auth_req_channel and id_pattern.search(auth_req_channel) else None
 
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', '-1002815468805'))
