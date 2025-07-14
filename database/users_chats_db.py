@@ -40,7 +40,7 @@ class Database:
             'api_two': SHORTENER_API2,
             'log': LOG_VR_CHANNEL,
             'imdb': IMDB,
-            'fsub_id': AUTH_CHANNEL,
+            'fsub': AUTH_CHANNELS,
             'link': LINK_MODE, 
             'is_verify': IS_VERIFY, 
             'verify_time': TWO_VERIFY_GAP,
@@ -72,6 +72,13 @@ class Database:
         
     async def add_join_req(self, id):
         await self.req.insert_one({'id': id})
+        
+    async def find_join_reqq(self, user_id, channel_id):
+        return bool(await self.req.find_one({'user_id': user_id, 'channel_id': channel_id}))
+        
+    async def add_join_reqq(self, user_id, channel_id):
+        await self.req.insert_one({'user_id': user_id, 'channel_id': channel_id})
+
 
     async def del_join_req(self):
         await self.req.drop()

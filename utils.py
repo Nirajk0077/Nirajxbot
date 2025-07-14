@@ -1,6 +1,7 @@
 import logging
+from pyrogram.types import Message, InlineKeyboardButton
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import AUTH_CHANNEL, LONG_IMDB_DESCRIPTION, IS_VERIFY , START_IMG
+from info import *
 from imdb import Cinemagoer
 import asyncio
 from pyrogram.types import Message
@@ -43,27 +44,32 @@ async def is_req_subscribed(bot, query):
     if await db.find_join_req(query.from_user.id):
         return True
     try:
-        user = await bot.get_chat_member(AUTH_CHANNEL, query.from_user.id)
-    except UserNotParticipant:
-        pass
-    except Exception as e:
-        print(e)
-    else:
+        user = await bot.get_chat_member(AUTH_REQ_CHANNEL, query.from_user.id)
         if user.status != enums.ChatMemberStatus.BANNED:
             return True
+    except UserNotParticipant:
+        return False
+    except Exception as e:
+        logger.exception("Subscription check error: %s", e)
+        return False
     return False
 
-async def is_subscribed(bot, user_id, channel_id):
-    try:
-        user = await bot.get_chat_member(channel_id, user_id)
-    except UserNotParticipant:
-        pass
-    except Exception as e:
-        pass
-    else:
-        if user.status != enums.ChatMemberStatus.BANNED:
-            return True
-    return False
+async def is_subscribed(bot, query, fsub_channels):
+    btn = []
+    user_id = query.from_user.id
+    for channel_id in fsub_channels:
+        try:
+            chat = await bot.get_chat(int(channel_id))
+            if await db.find_join_reqq(query.from_user.id, channel_id):
+                continue
+            await bot.get_chat_member(channel_id, query.from_user.id)
+        except UserNotParticipant:
+            invite_link = await bot.create_chat_invite_link(channel_id, creates_join_request=True)
+            btn.append([InlineKeyboardButton(f'❤️ {chat.title}', url=invite_link.invite_link)])
+        except Exception as e:
+            logger.exception("is_subscription check error: %s", e)
+            pass
+    return btn
 
 
 async def get_poster(query, bulk=False, id=False, file=None):

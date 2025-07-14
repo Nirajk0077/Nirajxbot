@@ -197,48 +197,49 @@ async def start(client:Client, message):
     except:
         pre, grp_id, file_id = "", 0, data
 
-    settings = await get_settings(int(data.split("_", 2)[1]))
-    if settings.get('fsub_id', AUTH_CHANNEL) == AUTH_REQ_CHANNEL:
-        if AUTH_REQ_CHANNEL and not await is_req_subscribed(client, message):
-            try:
-                invite_link = await client.create_chat_invite_link(int(AUTH_REQ_CHANNEL), creates_join_request=True)
-            except ChatAdminRequired:
-                logger.error("Make sure Bot is admin in Forcesub channel")
-                return
-            btn = [[
-                InlineKeyboardButton("⛔️ ᴊᴏɪɴ ɴᴏᴡ ⛔️", url=invite_link.invite_link)
-            ]]
-            if message.command[1] != "subscribe":
-                btn.append([InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
-            await client.send_photo(
-                chat_id=message.from_user.id,
-                photo=FORCESUB_IMG, 
-                caption=script.FORCESUB_TEXT,
-                reply_markup=InlineKeyboardMarkup(btn),
-                parse_mode=enums.ParseMode.HTML
-            )
-            return
-    else:
-        id = settings.get('fsub_id', AUTH_CHANNEL)
-        channel = int(id)
-        btn = []
-        if channel != AUTH_CHANNEL and not await is_subscribed(client, message.from_user.id, channel):
-            invite_link_custom = await client.create_chat_invite_link(channel)
-            btn.append([InlineKeyboardButton("⛔️ ᴊᴏɪɴ ɴᴏᴡ ⛔️", url=invite_link_custom.invite_link)])
-        if not await is_req_subscribed(client, message):
-            invite_link_default = await client.create_chat_invite_link(int(AUTH_CHANNEL), creates_join_request=True)
-            btn.append([InlineKeyboardButton("⛔️ ᴊᴏɪɴ ɴᴏᴡ ⛔️", url=invite_link_default.invite_link)])
-        if message.command[1] != "subscribe" and (await is_req_subscribed(client, message) is False or await is_subscribed(client, message.from_user.id, channel) is False):
-            btn.append([InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", url=f"https://t.me/{temp.U_NAME}?start={message.command[1]}")])
-        if btn:
-            await client.send_photo(
-                chat_id=message.from_user.id,
-                photo=FORCESUB_IMG, 
-                caption=script.FORCESUB_TEXT,
-                reply_markup=InlineKeyboardMarkup(btn),
-                parse_mode=enums.ParseMode.HTML
-            )
-            return        
+    if not await db.has_premium_access(message.from_user.id):
+        try:
+            settings = await get_settings(int(data.split("_", 2)[1]))
+            fsub_channels = settings.get('fsub', AUTH_CHANNELS) if settings else AUTH_CHANNELS
+            btn = []
+            jisshu_bots_btn = await is_subscribed(client, message, fsub_channels)
+            if jisshu_bots_btn:
+                btn.extend(dreamxbotz_btn)
+            jisshu_joined = await is_req_subscribed(client, message)
+            if not jisshu_joined:
+                try:
+                    invite_link_default = await client.create_chat_invite_link(int(AUTH_REQ_CHANNEL), creates_join_request=True)
+                except ChatAdminRequired:
+                    print("⚠️ Please make sure the bot has admin rights in the required channel: AUTH_REQ_CHANNEL 🤧")
+                    return
+                btn.append([InlineKeyboardButton("⛔️ ᴊᴏɪɴ ɴᴏᴡ ⛔️", url=invite_link_default.invite_link)])
+            if btn:
+                if len(message.command) > 1 and "_" in message.command[1]:
+                    kk, file_id = message.command[1].split("_", 1)
+                    btn.append([
+                        InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️", callback_data=f"checksub#{kk}#{file_id}")
+                    ])
+                    reply_markup = InlineKeyboardMarkup(btn)
+                    caption = (
+                        f"👋 Hello {message.from_user.mention}\n\n"
+                        "You have not joined all our <b>Updates Channels</b> yet.\n"
+                        "Please click the <b>Join Updates Channels</b> buttons below and ensure that you join <b>all</b> the listed channels.\n"
+                        "After that, please try again.\n\n"
+                        "आपने हमारे <b>सभी Updates Channels</b> को जॉइन नहीं किया है।\n"
+                        "कृपया <b>Join Updates Channels</b> बटन पर क्लिक करें और सुनिश्चित करें कि आपने <b>सभी चैनल्स</b> को जॉइन किया है।\n"
+                        "इसके बाद, कृपया फिर से प्रयास करें।"
+                    )
+                    photo = random.choice(FSUB_PICS) if FSUB_PICS else "https://graph.org/file/7478ff3eac37f4329c3d8.jpg"
+                    await message.reply_photo(
+                        photo=photo,
+                        caption=caption,
+                        reply_markup=reply_markup,
+                        parse_mode=enums.ParseMode.HTML
+                    )
+                    return
+        except Exception as e:
+            await log_error(client, f"Got Error In Force Subscription Function.\n\nError - {repr(e)}")
+            print(f"Error In Fsub :- {repr(e)}")        
             
     user_id = m.from_user.id
     if not await db.has_premium_access(user_id):

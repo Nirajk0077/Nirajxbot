@@ -8,7 +8,7 @@ from info import * #SUBSCRIPTION, PAYPICS, START_IMG, SETTINGS, URL, STICKERS_ID
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery, InputMediaPhoto, ChatPermissions, WebAppInfo, InputMediaAnimation, InputMediaPhoto
 from pyrogram import Client, filters, enums
 from pyrogram.errors import * #FloodWait, UserIsBlocked, MessageNotModified, PeerIdInvalid, ChatAdminRequired
-from utils import temp, get_settings, is_check_admin, get_status, get_size, save_group_settings, is_req_subscribed, get_poster, get_status, get_readable_time , imdb , formate_file_name
+from utils import temp, get_settings, is_check_admin, get_status, get_size, save_group_settings, is_req_subscribed, is_subscribed, get_poster, get_status, get_readable_time , imdb , formate_file_name
 from database.users_chats_db import db
 from database.ia_filterdb import Media, get_search_results, get_bad_files, get_file_details
 import random
@@ -786,6 +786,39 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 ]
             ])
 	)
+	
+	elif query.data.startswith("checksub"):
+        try:
+            ident, kk, file_id = query.data.split("#")
+            settings = await get_settings(query.message.chat.id)
+            fsub_channels = settings.get('fsub', AUTH_CHANNELS) if settings else AUTH_CHANNELS
+            btn = []
+            jisshu_bots_btn = await is_subscribed(client, query, fsub_channels)
+            if jisshu_bots_btn:
+                btn.extend(jisshu_bots_btn)
+            jisshu_joined = await is_req_subscribed(client, query)
+            if not jisshu_joined:
+                try:
+                    invite_link_default = await client.create_chat_invite_link(int(AUTH_REQ_CHANNEL), creates_join_request=True)
+                except ChatAdminRequired:
+                    print("Bot Ko AUTH_REQ_CHANNEL Per Admin Bana Bhai Pahile 🤧")
+                    return
+                btn.append([InlineKeyboardButton("⛔️ ᴊᴏɪɴ ɴᴏᴡ ⛔️", url=invite_link_default.invite_link)])
+            if btn:
+                btn.append([InlineKeyboardButton("♻️ ᴛʀʏ ᴀɢᴀɪɴ ♻️",callback_data=f"checksub#{kk}#{file_id}")])
+                try:
+                    await query.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup(btn))
+                except MessageNotModified:
+                    pass
+                await query.answer(
+                    f"👋 Hello {query.from_user.first_name},\n\n"
+                    "Yᴏᴜ ʜᴀᴠᴇ ɴᴏᴛ ᴊᴏɪɴᴇᴅ ᴀʟʟ ʀᴇǫᴜɪʀᴇᴅ ᴜᴘᴅᴀᴛᴇ Cʜᴀɴɴᴇʟs.\n"
+                    "Pʟᴇᴀsᴇ ᴊᴏɪɴ ᴇᴀᴄʜ ᴄʜᴀɴɴᴇʟ ʟɪsᴛᴇᴅ ʙᴇʟᴏᴡ ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ.\n\n", show_alert=True)
+                return
+            await query.answer(url=f"https://t.me/{temp.U_NAME}?start={kk}_{file_id}")
+            await query.message.delete()
+        except Exception as e:
+            await log_error(client, f"checksub callback.\n\n Error - {e}")
 	
     elif query.data == "buttons":
         await query.answer("ɴᴏ ᴍᴏʀᴇ ᴘᴀɢᴇs 😊", show_alert=True)
