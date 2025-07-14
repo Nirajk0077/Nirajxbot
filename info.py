@@ -78,7 +78,7 @@ SEASONS = [f'season {i}'for i in range (1 , 23)]
 
 # Pictures And Reaction
 START_IMG = (environ.get('START_IMG', 'https://envs.sh/eGC.jpg https://envs.sh/eGC.jpg')).split()
-FORCESUB_IMG = environ.get('FORCESUB_IMG', 'https://i.ibb.co/ZNC1Hnb/ad3f2c88a8f2.jpg')
+FSUB_PICS = (environ.get('FSUB_PICS', 'https://i.ibb.co/ZNC1Hnb/ad3f2c88a8f2.jpg')).split()  # Fsub pic
 REFER_PICS = (environ.get("REFER_PICS", "https://envs.sh/eGl.jpg")).split() 
 PAYPICS = (environ.get('PAYPICS', 'https://')).split()
 SUBSCRIPTION = (environ.get('SUBSCRIPTION', 'https://graph.org/file/242b7f1b52743938d81f1.jpg'))
