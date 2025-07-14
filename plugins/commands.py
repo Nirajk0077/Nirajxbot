@@ -204,7 +204,7 @@ async def start(client:Client, message):
             btn = []
             jisshu_bots_btn = await is_subscribed(client, message, fsub_channels)
             if jisshu_bots_btn:
-                btn.extend(dreamxbotz_btn)
+                btn.extend(jisshu_bots_btn)
             jisshu_joined = await is_req_subscribed(client, message)
             if not jisshu_joined:
                 try:
