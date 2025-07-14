@@ -787,7 +787,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ])
 	)
 	
-	elif query.data.startswith("checksub"):
+    elif query.data.startswith("checksub"):
         try:
             ident, kk, file_id = query.data.split("#")
             settings = await get_settings(query.message.chat.id)
