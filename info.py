@@ -25,7 +25,7 @@ OWNER_USERNAME = environ.get('OWNER_USERNAME', 'Deendayal_dhakad_Contact') # wit
 USERNAME = environ.get('USERNAME', "Deendayal_dhakad_Contact") # ADMIN USERNAME
 
 # Database Channel 
-CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002277314287').split()]
+CHANNELS = [int(ch) if id_pattern.search(ch) else ch for ch in environ.get('CHANNELS', '-1002535349774').split()]
 
 # ForceSub Channel & Log Channels
 auth_req_channel = environ.get('AUTH_REQ_CHANNEL', '-1002765322004')  # requst to join Channel for force sub (make sure bot is admin) only for bot ADMINS  
@@ -37,11 +37,11 @@ LOG_API_CHANNEL = int(environ.get('LOG_API_CHANNEL', '-1002681758188'))
 LOG_VR_CHANNEL = int(environ.get('LOG_VR_CHANNEL', '-1002557378186'))
 
 # MongoDB 
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://sunil664023:eieqy2jRVIbzD29r@cluster0.ezot5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://kittuboy96:7oWJQwZSnJuGKezM@cluster0.hz4vlid.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 
 # Files index database url
-FILES_DATABASE = environ.get('FILES_DATABASE', "mongodb+srv://singaporeserver637767:WWHPP40bajqtMI4I@cluster0.3vzen.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+FILES_DATABASE = environ.get('FILES_DATABASE', "mongodb+srv://kittygirl6208:FUdDoQ1FUQAyRb2T@cluster0.hsntdtx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'jisshu')
 
 # Other Channel's
